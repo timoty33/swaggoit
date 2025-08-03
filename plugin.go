@@ -1,16 +1,15 @@
 package swaggoit
 
-func Start(configsProject, configsPath struct) {
-  fmt.Println("Hello World")
+import (
+  "fmt"
+  "github.com/spf13/cobra"
+)
 
-  fmt.Print(`
----------------
-`)
-  fmt.Println(configsProject)
+var Start = &cobra.Command{
+	Use:   "hello-world",
+	Short: "Imprime Hello World",
+	Run: func(cmd *cobra.Command, args []string) {
+    fmt.Println(args)
 
-  fmt.Print(`
----------------
-`)
-
-  fmt.Println(configsPath)
+    fmt.Println("Hello World")
 }
