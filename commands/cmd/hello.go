@@ -56,7 +56,7 @@ var Hello = &cobra.Command{
 	RunE: func(cmd *cobra.Command, args []string) error {
 		var config Config
 		
-		fmt.Println("Hello, World!")
+		fmt.Println("Hello, Goit!")
 		fmt.Println(" ")
 
 		decoder := json.NewDecoder(os.Stdin)
