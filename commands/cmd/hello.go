@@ -2,6 +2,8 @@ package cmd
 
 import (
 	"fmt"
+	"os"
+	"encoding/json"
 
 	"github.com/spf13/cobra"
 )
@@ -59,7 +61,7 @@ var Hello = &cobra.Command{
 
 		decoder := json.NewDecoder(os.Stdin)
 		if err := decoder.Decode(&config); err != nil {
-			log.Fatalf("erro ao ler entrada do GoIt: %w", err)
+			return fmt.Errorf("erro ao ler entrada do GoIt: %w", err)
 		}
 
 		fmt.Println(config)
