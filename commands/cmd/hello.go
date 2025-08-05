@@ -1,13 +1,12 @@
 package cmd
 
 import (
+	"encoding/json"
 	"fmt"
 	"os"
-	"encoding/json"
 
 	"github.com/spf13/cobra"
 )
-
 
 type ConfigProject struct {
 	Framework           string `json:"framework"`
@@ -55,8 +54,8 @@ var Hello = &cobra.Command{
 	Long:  `This command prints a hello message to the user.`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		var config Config
-		
-		fmt.Println("Hello, World!")
+
+		fmt.Println("Hello, timoty33!")
 		fmt.Println(" ")
 
 		decoder := json.NewDecoder(os.Stdin)
