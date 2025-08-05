@@ -1,12 +1,4 @@
-package cmd
-
-import (
-	"encoding/json"
-	"fmt"
-	"os"
-
-	"github.com/spf13/cobra"
-)
+package utils
 
 type ConfigProject struct {
 	Framework           string `json:"framework"`
@@ -46,25 +38,4 @@ type ConfigPaths struct {
 type Config struct {
 	Project ConfigProject `json:"project"`
 	Paths   ConfigPaths   `json:"paths"`
-}
-
-var Hello = &cobra.Command{
-	Use:   "hello",
-	Short: "Prints a hello message",
-	Long:  `This command prints a hello message to the user.`,
-	RunE: func(cmd *cobra.Command, args []string) error {
-		var config Config
-
-		fmt.Println("Hello, timoty33!")
-		fmt.Println(" ")
-
-		decoder := json.NewDecoder(os.Stdin)
-		if err := decoder.Decode(&config); err != nil {
-			return fmt.Errorf("erro ao ler entrada do GoIt: %w", err)
-		}
-
-		fmt.Println(config)
-
-		return nil
-	},
 }
